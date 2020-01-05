@@ -1,0 +1,6 @@
+---
+# defaults file for common
+
+users:
+  ansible:
+    name: devops

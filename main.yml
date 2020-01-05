@@ -1,0 +1,5 @@
+---
+# file: main.yml
+
+- import_playbook: roles/common.yml
+- import_playbook: roles/webserver.yml

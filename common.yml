@@ -1,0 +1,32 @@
+---
+# file: common.yml
+
+- name: configure control node
+  hosts: localhost
+  become: true
+  gather_facts: false
+  vars_files:
+    - roles/common/defaults/main.yml
+    - roles/common/vars/vault.yml
+    - roles/common/vars/vars.yml
+  no_log: true
+  tags: [ common ]
+  tasks:
+    - name: create ansible management user with ssh key pair on control node
+      user:
+        name: "{{ users.ansible.name }}"
+        state: present
+        generate_ssh_key: yes
+        ssh_key_bits: 2048
+        ssh_key_file: .ssh/id_rsa
+
+- name: configure common host tasks
+  hosts: all
+  remote_user: root
+  vars_files:
+    - roles/common/vars/vault.yml
+    - roles/common/vars/vars.yml
+  no_log: true
+  roles:
+    - role: common
+      tags: [ common ]
