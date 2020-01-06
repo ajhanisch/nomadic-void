@@ -13,3 +13,19 @@
     owner: root
     group: root
     mode: '0644'
+  notify:
+    - restart_dhcpd
+
+- name: start dhcpd service
+  service:
+    name: dhcpd
+    state: started
+    enabled: yes
+
+- name: configure firewalld rules
+  firewalld:
+    port: 67/udp
+    permanent: yes
+    state: enabled
+  notify:
+    - restart_firewalld

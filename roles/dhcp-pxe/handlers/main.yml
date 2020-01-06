@@ -1,2 +1,12 @@
 ---
 # handlers file for dhcp-pxe
+
+- name: restart_dhcpd
+  service:
+    name: dhcpd
+    state: restarted
+
+- name: restart_firewalld
+  service:
+    name: firewalld
+    state: restarted
