@@ -3,8 +3,16 @@
 
 - name: install required packages
   dnf:
-    name: dhcp-server
+    name: 
+      - dhcp-server
+      - firewalld
     state: latest
+
+- name: start dhcpd service
+  service:
+    name: dhcpd
+    state: started
+    enabled: yes
 
 - name: stage dhcpd.conf file
   template:
@@ -16,9 +24,9 @@
   notify:
     - restart_dhcpd
 
-- name: start dhcpd service
+- name: start firewalld service
   service:
-    name: dhcpd
+    name: firewalld
     state: started
     enabled: yes
 
