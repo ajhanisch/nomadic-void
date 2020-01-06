@@ -1,9 +1,4 @@
 #!/bin/bash
-# 
-# file: setup.sh
-# 
-# simple bash script to perform project setup tasks
-# on ansible control node after iso installation
 
 yum install -y epel-release
 yum install -y ansible
