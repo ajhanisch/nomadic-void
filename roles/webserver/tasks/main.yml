@@ -1,5 +1,0 @@
----
-# tasks file for webserver
-
-- name: test devops user
-  command: whoami
