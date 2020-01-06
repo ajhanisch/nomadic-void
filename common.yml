@@ -3,7 +3,6 @@
 
 - name: configure control node
   hosts: localhost
-  become: true
   gather_facts: false
   vars_files:
     - roles/common/defaults/main.yml
@@ -22,7 +21,6 @@
 
 - name: configure common host tasks
   hosts: all
-  remote_user: root
   vars_files:
     - roles/common/vars/vault.yml
     - roles/common/vars/vars.yml

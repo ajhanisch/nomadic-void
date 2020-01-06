@@ -1,0 +1,12 @@
+---
+# file: dhcp-pxe.yml
+
+- name: configure dhcp-pxe
+  hosts: dhcp-pxe
+  become: yes
+  remote_user: devops
+  vars_files:
+    - roles/common/defaults/main.yml
+  roles:
+    - role: dhcp-pxe
+      tags: [ dhcp-pxe ]

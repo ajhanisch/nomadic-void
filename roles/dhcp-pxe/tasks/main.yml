@@ -1,0 +1,15 @@
+---
+# tasks file for dhcp-pxe
+
+- name: install required packages
+  dnf:
+    name: dhcp-server
+    state: latest
+
+- name: stage dhcpd.conf file
+  template:
+    src: dhcpd.conf.j2
+    dest: /etc/dhcp/dhcpd.conf
+    owner: root
+    group: root
+    mode: '0644'

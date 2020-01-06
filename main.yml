@@ -1,5 +1,5 @@
 ---
 # file: main.yml
 
-- import_playbook: roles/common.yml
-- import_playbook: roles/webserver.yml
+- import_playbook: common.yml
+- import_playbook: dhcp-pxe.yml
