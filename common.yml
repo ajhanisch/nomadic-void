@@ -1,7 +1,7 @@
 ---
 # file: common.yml
 
-- name: configure control node
+- name: configure local control node
   hosts: localhost
   gather_facts: false
   vars_files:
@@ -19,7 +19,7 @@
         ssh_key_bits: 2048
         ssh_key_file: .ssh/id_rsa
 
-- name: configure common host tasks
+- name: configure common tasks on all hosts
   hosts: all
   vars_files:
     - roles/common/vars/vault.yml
