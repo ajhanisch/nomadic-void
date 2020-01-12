@@ -42,5 +42,8 @@
 
 ## db-[99:101]-node.example.com
 
-[dhcp-pxe]
+[centos7]
+192.168.90.11
+
+[centos8]
 192.168.90.10
